@@ -13,29 +13,30 @@ int main(){
 
     while((c = getchar()) != EOF){
         byteCnt++;
-        if (flag == 0){
+        if (flag == 0){     // new line
             lineCnt++;
             flag = 1;
         }
-        if (isdigit(c)){
+        if (isdigit(c)){    // digit
             digitCnt++;
         }
-        else if (isalpha(c)){
-            if (isupper(c)){
+        else if (isalpha(c)){   // alpha
+            if (isupper(c)){    // uppercase
                 upperCnt++;
                 alphabet[c - 'A']++;
             }
-            else{
+            else{               // lowercase
                 lowerCnt++;
                 alphabet[c - 'a']++;
             }
         }
-        else if (isspace(c)){
+        else if (isspace(c)){   // space
             spaceCnt++;
-            if (c == '\n') flag = 0;
+            if (c == '\n') flag = 0;    // into new line
         }
     }
-
+    
+    // output
     printf("Bytes Count: %d\n", byteCnt);
     printf("Lowercase Count: %d\n", lowerCnt);
     printf("Uppercase Count: %d\n", upperCnt);
